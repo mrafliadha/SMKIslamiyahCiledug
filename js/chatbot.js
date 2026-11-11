@@ -198,7 +198,8 @@
   }
 
   /* ---------- 5. Tampilan ---------- */
-  const ICON_CHAT = '<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.5-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14h4"/></svg>';
+  // Ikon gelembung chat: bentuk solid dengan tiga titik (titik berwarna navy mengikuti latar tombol)
+  const ICON_CHAT = '<svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="currentColor" d="M16 4C9.4 4 4 8.8 4 14.9c0 3.2 1.5 6 3.9 8l-1.1 4.3c-.2.8.7 1.4 1.4 1l4.4-2.6c1.1.3 2.3.4 3.4.4 6.6 0 12-4.8 12-10.9S22.600 4 16 4z"/><g fill="#0F1A4D"><circle cx="10.800" cy="15" r="1.800"/><circle cx="16" cy="15" r="1.800"/><circle cx="21.200" cy="15" r="1.800"/></g></svg>';
   const ICON_X = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
   const ICON_SEND = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>';
   const safeHref = h => { h = String(h || '').trim(); return /^(javascript|data|vbscript):/i.test(h) ? '#' : h; };
@@ -232,18 +233,23 @@
     const res = answer(q);
     setTimeout(() => { typing(false); push(Object.assign({ r: 'b' }, res)); busy = false; if (!panel.hidden) input.focus({ preventScroll: true }); }, REDUCE ? 150 : 450 + Math.min(res.t.length * 3, 650));
   }
+  // Saat jendela chat terbuka, tombol bulat disembunyikan (jendela punya tombol tutup sendiri).
+  // Saat ditutup, tombol muncul lagi dengan animasi "pop".
   function open() {
-    panel.hidden = false; fab.querySelector('.cb-btn').setAttribute('aria-expanded', 'true'); ss.set(OPENK, '1'); closeTease(); scroll();
+    fab.classList.add('open'); panel.hidden = false; fab.querySelector('.cb-btn').setAttribute('aria-expanded', 'true'); ss.set(OPENK, '1'); closeTease(); scroll();
     setTimeout(() => input.focus({ preventScroll: true }), 60);
   }
-  function close() { panel.hidden = true; const b = fab.querySelector('.cb-btn'); b.setAttribute('aria-expanded', 'false'); ss.set(OPENK, '0'); }
+  function close() {
+    panel.hidden = true; fab.classList.remove('open'); const b = fab.querySelector('.cb-btn'); b.setAttribute('aria-expanded', 'false'); ss.set(OPENK, '0');
+    if (!REDUCE) { b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop'); b.addEventListener('animationend', () => b.classList.remove('pop'), { once: true }); }
+  }
   function closeTease() { const t = $('cb-tease'); if (t) t.hidden = true; ss.set(TEASEK, '1'); }
 
   window.initChatbot = function () {
     if ($('cb-fab')) return;
     fab = document.createElement('div'); fab.className = 'cb-fab'; fab.id = 'cb-fab';
     fab.innerHTML = `<section class="cb-panel" id="cb-panel" role="dialog" aria-label="Asisten virtual ${qa(CFG.namaLengkap)}" hidden>
-        <header class="cb-hd"><div class="cb-av">${ICON_CHAT.replace(/width="26" height="26"/, 'width="22" height="22"')}</div>
+        <header class="cb-hd"><div class="cb-av">${ICON_CHAT.replace(/width="30" height="30"/, 'width="24" height="24"')}</div>
           <div class="cb-who"><b>Asisten Virtual</b><span>${ESC(CFG.namaLengkap)}</span></div>
           <button type="button" class="cb-x" id="cb-x" aria-label="Tutup chat">${ICON_X}</button></header>
         <div class="cb-log" id="cb-log" role="log" aria-live="polite"></div>
@@ -266,7 +272,7 @@
     $('cb-tease-t').onclick = open; $('cb-tease-x').onclick = closeTease;
     $('cb-form').onsubmit = e => { e.preventDefault(); const v = input.value; input.value = ''; ask(v); };
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden && !document.getElementById('modal')) { close(); fab.querySelector('.cb-btn').focus(); } });
-    if (ss.get(OPENK) === '1') { panel.hidden = false; fab.querySelector('.cb-btn').setAttribute('aria-expanded', 'true'); scroll(); }
+    if (ss.get(OPENK) === '1') { fab.classList.add('open'); panel.hidden = false; fab.querySelector('.cb-btn').setAttribute('aria-expanded', 'true'); scroll(); }
     else if (ss.get(TEASEK) !== '1') {
       setTimeout(() => { const t = $('cb-tease'); if (t && panel.hidden) t.hidden = false; }, 6000);
       setTimeout(closeTease, 18000);

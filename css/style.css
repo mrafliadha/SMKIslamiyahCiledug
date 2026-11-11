@@ -1356,7 +1356,6 @@ nav.menu a, .brand .name b, .brand .name span { white-space: nowrap; }
    ===================================================================== */
 .ppdb-feature { padding-top: clamp(32px, 4vw, 48px); }
 .ppdb-box { position: relative; isolation: isolate; overflow: hidden; width: min(1104px, calc(100% - 32px)); margin-inline: auto; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: clamp(20px, 3.5vw, 44px); padding: clamp(24px, 3.5vw, 36px) clamp(24px, 4vw, 44px); color: #fff; background: var(--navy); border-top: 3px solid var(--gold); border-radius: var(--r); }
-.pf-wm { position: absolute; z-index: -1; right: -24px; bottom: -64px; width: clamp(220px, 28vw, 340px); opacity: .06; filter: brightness(0) invert(1); pointer-events: none; }
 .pf-badge { align-self: stretch; display: flex; align-items: center; padding: 0 clamp(20px, 3.5vw, 44px) 0 6px; border-right: 1px solid rgba(255, 255, 255, .16); }
 .pf-ring { width: clamp(84px, 9vw, 112px); aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; background: #fff; box-shadow: 0 0 0 4px var(--navy), 0 0 0 5.5px var(--gold); }
 .pf-ring img { width: 68%; height: 68%; object-fit: contain; }
@@ -1529,53 +1528,9 @@ html[data-theme="dark"] .cb-chip:hover { background: var(--blue); }
 
 
 /* =====================================================================
-   PENAMBAHAN: navbar lebih lega, ikon menu Jurusan/Ekskul, tombol Hubungi Kontak
+   PENAMBAHAN: ikon menu Jurusan/Ekskul dan logo berwarna
    (blok ini hanya menambah aturan; aturan lama di atas tidak diubah)
    ===================================================================== */
-
-/* ----- 1. Navbar lebih lega ----- */
-@media (min-width: 1281px) {
-  .navbar { max-width: 1440px; padding-inline: clamp(24px, 2.6vw, 44px); }
-  nav.menu a { padding-inline: clamp(12px, 1.05vw, 17px); }
-  nav.menu a:not(.nav-cta)::after, nav.menu a.active::after { left: clamp(12px, 1.05vw, 17px); right: clamp(12px, 1.05vw, 17px); }
-  nav.menu a.nav-cta { margin-left: 14px; padding-inline: 22px; }
-  .nav-tools { margin-left: 20px; }
-  .brand { gap: 14px; }
-}
-@media (min-width: 1181px) and (max-width: 1280px) {   /* layar laptop kecil: lega tapi tetap muat satu baris */
-  .navbar { padding-inline: 24px; }
-  nav.menu a { padding-inline: 8px; }
-  nav.menu a:not(.nav-cta)::after, nav.menu a.active::after { left: 8px; right: 8px; }
-  nav.menu a.nav-cta { margin-left: 6px; padding-inline: 16px; }
-  .nav-tools { margin-left: 10px; }
-}
-@media (min-width: 1041px) and (max-width: 1180px) {
-  .navbar { padding-inline: 14px; }
-  .nav-tools { margin-left: 4px; }
-}
-@media (min-width: 1041px) and (max-width: 1120px) {   /* tablet landscape: dirapatkan secukupnya agar tidak meluber */
-  nav.menu a { padding-inline: 6px; font-size: 13px; }
-  nav.menu a:not(.nav-cta)::after, nav.menu a.active::after { left: 6px; right: 6px; }
-  nav.menu a.nav-cta { margin-left: 2px; padding-inline: 12px; }
-  .brand .name b { font-size: 14px; }
-  .dd-toggle { width: 22px; margin-right: 0; }
-}
-
-@media (max-width: 480px) {   /* HP: logo, nama, dan tombol dikecilkan sedikit agar semuanya muat tanpa geser ke samping */
-  .navbar { padding-inline: 12px; }
-  .brand { gap: 8px; }
-  .brand img, .brand svg { width: 40px; height: 40px; }
-  .brand .name b { font-size: 14px; }
-  .brand .name span { font-size: 10px; }
-  .nav-tools { margin-left: 6px; }
-  .nav-tools .lang-toggle { margin-right: 4px; padding: 0 6px; min-width: 34px; font-size: 11.5px; }
-  .nav-tools .theme-toggle { width: 36px; }
-}
-@media (max-width: 360px) {
-  .brand .name b { font-size: 12.5px; }
-  .brand img, .brand svg { width: 36px; height: 36px; }
-  .nav-tools .theme-toggle { width: 34px; }
-}
 
 /* ----- 2. Ikon pada dropdown Jurusan & Ekstrakurikuler ----- */
 .dd-ico { flex: 0 0 auto; width: 32px; height: 32px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; background: var(--chip-bg); color: var(--accent); transition: background-color .18s var(--ease), color .18s var(--ease); }
@@ -1583,59 +1538,6 @@ html[data-theme="dark"] .cb-chip:hover { background: var(--blue); }
 nav.menu .dropdown a:hover .dd-ico { background: var(--accent); color: #fff; }
 html[data-theme="dark"] .dd-ico { background: rgba(255, 199, 44, .14); color: var(--gold); }
 html[data-theme="dark"] nav.menu .dropdown a:hover .dd-ico { background: var(--gold); color: var(--navy); }
-
-/* ----- 3. Tombol "Hubungi Kontak" di sisi kanan layar ----- */
-.kf-tab { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 245; display: flex; flex-direction: column; align-items: center; gap: 10px;
-  width: calc(46px + env(safe-area-inset-right, 0px)); padding: 14px env(safe-area-inset-right, 0px) 14px 0; background: var(--gold); color: var(--navy); border: 0; border-radius: 14px 0 0 14px;
-  box-shadow: -4px 6px 18px rgba(15, 26, 77, .28); cursor: pointer; font: 700 13px/1 var(--font); letter-spacing: .04em; transition: background-color .2s var(--ease), width .2s var(--ease); }
-.kf-tab span { writing-mode: vertical-rl; white-space: nowrap; }
-.kf-tab svg { width: 20px; height: 20px; flex: 0 0 auto; }
-.kf-tab:hover { background: var(--gold-dk); width: calc(52px + env(safe-area-inset-right, 0px)); }
-.kf-tab:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
-.kf-bg { position: fixed; inset: 0; z-index: 260; background: rgba(6, 10, 30, .55); opacity: 0; transition: opacity .25s ease; }
-.kf-bg.on { opacity: 1; }
-.kf-panel { position: fixed; z-index: 265; top: 0; right: 0; bottom: 0; width: min(400px, 100vw); background: var(--navy); color: #B7C1E4; border-left: 4px solid var(--gold);
-  padding: 28px 26px calc(24px + env(safe-area-inset-bottom, 0px)); overflow-y: auto; overscroll-behavior: contain; transform: translateX(100%); transition: transform .28s var(--ease); box-shadow: -20px 0 50px rgba(6, 10, 30, .4); }
-.kf-panel[hidden], .kf-bg[hidden] { display: none; }
-.kf-panel.on { transform: none; }
-.kf-grip { display: none; }
-.kf-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 10px; margin-bottom: 14px; border-bottom: 1px solid rgba(255, 255, 255, .16); }
-.kf-head h4 { margin: 0; color: #fff; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
-.kf-x { width: 40px; height: 40px; display: grid; place-items: center; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .08); color: #fff; cursor: pointer; transition: background-color .2s ease; }
-.kf-x:hover { background: rgba(255, 255, 255, .18); }
-.kf-x svg { width: 18px; height: 18px; }
-.kf-intro { font-size: 13.5px; line-height: 1.7; margin: 0 0 8px; color: #B7C1E4; }
-.kf-row { display: flex; gap: 14px; align-items: flex-start; padding: 13px 0; border-bottom: 1px solid rgba(255, 255, 255, .08); }
-.kf-ic { flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 199, 44, .14); color: var(--gold); }
-.kf-ic svg { width: 18px; height: 18px; }
-.kf-row > div { min-width: 0; }
-.kf-row p, .kf-row a { display: block; margin: 3px 0 0; font-size: 14px; line-height: 1.55; color: #E8ECFB; text-decoration: none; overflow-wrap: anywhere; }
-.kf-row a:hover { color: #fff; text-decoration: underline; }
-.kf-row a.kf-more { margin-top: 6px; font-size: 12.5px; color: var(--gold); }
-.kf-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
-.kf-btn { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 50px; padding: 0 8px; border-radius: 12px; font-size: 13.5px; font-weight: 700; text-decoration: none; text-align: center; transition: transform .15s ease, background-color .2s ease; }
-.kf-btn svg { width: 19px; height: 19px; flex: 0 0 auto; }
-.kf-btn:active { transform: scale(.98); }
-.kf-wa { grid-column: 1 / -1; background: var(--gold); color: var(--navy); }
-.kf-wa:hover { background: var(--gold-dk); }
-.kf-call, .kf-mail { background: rgba(255, 255, 255, .08); color: #fff; border: 1px solid rgba(255, 255, 255, .18); }
-.kf-call:hover, .kf-mail:hover { background: rgba(255, 255, 255, .16); }
-.kf-btn:focus-visible, .kf-x:focus-visible, .kf-row a:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
-html.kf-lock { overflow: hidden; }
-body:has(nav.menu.open) .kf { display: none; }
-@media (max-width: 767px) {
-  .kf-tab { width: calc(44px + env(safe-area-inset-right, 0px)); top: 46%; padding-block: 12px; font-size: 12.5px; }
-  .kf-tab:hover { width: calc(44px + env(safe-area-inset-right, 0px)); }
-  .kf-panel { top: auto; left: 0; width: 100%; max-height: 88dvh; border-left: 0; border-top: 4px solid var(--gold); border-radius: 22px 22px 0 0;
-    padding: 10px 20px calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateY(100%); box-shadow: 0 -16px 40px rgba(6, 10, 30, .4); }
-  .kf-grip { display: block; width: 44px; height: 5px; margin: 0 auto 12px; border-radius: 3px; background: rgba(255, 255, 255, .28); }
-  .kf-row { padding: 14px 0; }
-  .kf-btn { min-height: 54px; font-size: 14.5px; }
-}
-@media (max-height: 460px) { .kf-tab { top: 36%; } }
-@media (prefers-reduced-motion: reduce) { .kf-panel, .kf-bg, .kf-tab { transition: none; } }
-@media print { .kf { display: none; } }
-
 
 /* ----- 4. Logo berwarna: dropdown menu + thumbnail kartu Jurusan/Ekskul ----- */
 .dd-ico.dd-ico-img { width: 34px; height: 34px; background: #fff; border: 1px solid var(--line); }
@@ -1696,3 +1598,120 @@ nav.menu .dropdown a:hover .dd-ico.dd-ico-img, html[data-theme="dark"] .dd-ico.d
 .kt-side { grid-template-rows: auto 1fr; }
 .kt-side .kt-card:last-child { justify-content: center; }
 .kt-map iframe { min-height: 300px; }
+
+
+/* =====================================================================
+   NAVBAR RAPI: sejajar dengan isi halaman (lebar 1160px), jarak seragam,
+   bentuk tombol seragam (sudut 6px), pembatas halus sebelum PPDB
+   ===================================================================== */
+.navbar { max-width: 1160px; margin-inline: auto; padding: 0 28px; min-height: 76px; gap: 20px; justify-content: space-between; }
+.brand { flex: none; gap: 12px; }
+nav.menu { flex: 1 1 auto; justify-content: flex-end; gap: 0; margin-left: 0; }
+nav.menu a { padding: 10px 10px; font-size: 14px; line-height: 1.2; white-space: nowrap; }
+nav.menu a:not(.nav-cta)::after, nav.menu a.active::after { left: 10px; right: 10px; bottom: 3px; }
+nav.menu .has-dd > a { padding-right: 2px; }
+nav.menu .has-dd > a:not(.nav-cta)::after { right: 2px; }
+.dd-toggle { width: 22px; height: 34px; margin-right: 4px; border-radius: 6px; }
+nav.menu a.nav-cta { position: relative; margin-left: 16px; padding: 11px 18px; border-radius: 6px; }
+nav.menu a.nav-cta::before { content: ''; position: absolute; left: -10px; top: 50%; width: 1px; height: 24px; transform: translateY(-50%); background: var(--line); }
+.nav-tools { flex: none; margin-left: 0; }
+.theme-toggle { width: 40px; height: 40px; border-radius: 6px; }
+@media (min-width: 1041px) and (max-width: 1180px) {
+  .navbar { padding-inline: 20px; gap: 12px; }
+  nav.menu a { padding-inline: 9px; font-size: 13.5px; }
+  nav.menu a:not(.nav-cta)::after, nav.menu a.active::after { left: 9px; right: 9px; }
+  nav.menu a.nav-cta { margin-left: 14px; padding-inline: 16px; }
+  .dd-toggle { margin-right: 2px; }
+  .brand .name b { font-size: 15px; }
+}
+@media (min-width: 1041px) and (max-width: 1110px) {
+  nav.menu a { padding-inline: 6px; font-size: 13px; }
+  nav.menu a:not(.nav-cta)::after, nav.menu a.active::after { left: 6px; right: 6px; }
+  nav.menu a.nav-cta { margin-left: 10px; padding-inline: 12px; }
+  .brand .name b { font-size: 14px; }
+}
+@media (max-width: 1040px) {
+  .navbar { min-height: 66px; padding-inline: 20px; }
+  nav.menu a.nav-cta::before { display: none; }
+  nav.menu a.nav-cta { margin-left: 0; }
+  .nav-tools { margin-left: auto; }
+}
+@media (max-width: 480px) {
+  .navbar { padding-inline: 14px; gap: 8px; }
+  .brand { gap: 9px; }
+  .brand img, .brand svg { width: 42px; height: 42px; }
+  .brand .name b { font-size: 14px; }
+  .brand .name span { font-size: 10px; }
+  .theme-toggle { width: 38px; height: 38px; }
+}
+@media (max-width: 360px) { .brand .name b { font-size: 12.5px; } .brand img, .brand svg { width: 36px; height: 36px; } }
+
+/* =====================================================================
+   HERO & BANNER: foto terlihat (bukan satu warna biru penuh)
+   Gradasi dari kiri: pekat di sisi teks, makin bening ke kanan, ditambah
+   bayangan tipis di atas dan bawah agar menyatu dengan navbar dan pita statistik.
+   ===================================================================== */
+.hero { background:
+    linear-gradient(90deg, rgba(10, 18, 56, .94) 0%, rgba(15, 26, 77, .80) 36%, rgba(15, 26, 77, .40) 68%, rgba(15, 26, 77, .12) 100%),
+    linear-gradient(180deg, rgba(10, 18, 56, .42) 0%, rgba(10, 18, 56, 0) 26%, rgba(10, 18, 56, 0) 60%, rgba(10, 18, 56, .66) 100%),
+    var(--hero-custom, url('../assets/hero.jpg')) center 42% / cover no-repeat, var(--navy); }
+.detail-hero { display: flex; align-items: center; min-height: clamp(260px, 30vw, 440px); padding-block: clamp(48px, 6vw, 88px);
+  background:
+    linear-gradient(90deg, rgba(10, 18, 56, .92) 0%, rgba(15, 26, 77, .72) 40%, rgba(15, 26, 77, .26) 74%, rgba(15, 26, 77, .08) 100%),
+    linear-gradient(180deg, rgba(10, 18, 56, .35) 0%, rgba(10, 18, 56, 0) 30%, rgba(10, 18, 56, .30) 100%),
+    var(--banner-custom, url('../assets/img/gedung-gerbang.webp')) center 6% / cover no-repeat, var(--navy); }
+.detail-hero .wrap { width: 100%; }
+.detail-hero .sub { max-width: 52ch; }
+@media (max-width: 860px) {   /* layar sempit: teks menempati lebar penuh, jadi lapisan dibuat merata */
+  .hero { background:
+      linear-gradient(180deg, rgba(10, 18, 56, .84) 0%, rgba(15, 26, 77, .66) 50%, rgba(10, 18, 56, .88) 100%),
+      var(--hero-custom, url('../assets/hero.jpg')) center / cover no-repeat, var(--navy); }
+  .detail-hero { background:
+      linear-gradient(180deg, rgba(10, 18, 56, .82) 0%, rgba(15, 26, 77, .62) 60%, rgba(10, 18, 56, .78) 100%),
+      var(--banner-custom, url('../assets/img/gedung-gerbang.webp')) center 20% / cover no-repeat, var(--navy); }
+}
+
+/* =====================================================================
+   FOTO: ukuran mengikuti lebar layar (aspect-ratio + object-fit: cover), bukan tinggi tetap
+   ===================================================================== */
+.card .thumb { height: auto; aspect-ratio: 16 / 10; }
+.feature-grid .card .thumb { aspect-ratio: auto; }
+.cover { height: auto; aspect-ratio: 21 / 9; max-height: 480px; }
+.art { height: auto; aspect-ratio: 4 / 3; max-height: 460px; }
+.split.rev .art img.ph { object-position: 84% 46%; }   /* foto kedua di Profil memakai bagian gedung yang berbeda dari foto pertama */
+.gallery div { height: auto; aspect-ratio: 4 / 3; }
+.gallery:has(> div:only-child) { grid-template-columns: 1fr; }
+.gallery:has(> div:only-child) div { aspect-ratio: 16 / 9; }
+.info-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.jsl-visual { min-height: 0; }
+.jsl-slide { min-height: 0; }
+@media (min-width: 1041px) { .jsl-visual { min-height: 360px; } }
+@media (max-width: 1040px) { .jsl-visual { aspect-ratio: 16 / 9; min-height: 0; } .jsl-visual .logo-fill { padding: 7%; } }
+@media (max-width: 700px) { .cover { aspect-ratio: 16 / 10; } .jsl-visual { aspect-ratio: 4 / 3; } .art { aspect-ratio: 16 / 11; } }
+
+/* =====================================================================
+   MARQUEE MITRA: logo tampil rapi, berwarna saat disorot
+   ===================================================================== */
+.mq-i { height: 64px; min-width: 140px; background: var(--white); }
+.mq-i img { max-height: 40px; max-width: 128px; filter: grayscale(1); opacity: .72; transition: filter .25s var(--ease), opacity .25s var(--ease); }
+.mq-i:hover img { filter: none; opacity: 1; }
+
+/* =====================================================================
+   CHATBOT: tombol bulat lebih rapi, hilang saat jendela chat terbuka,
+   muncul lagi dengan animasi pop saat jendela ditutup
+   ===================================================================== */
+.cb-btn { width: 60px; height: 60px; border: 0; color: var(--gold); background: var(--navy);
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, .38), 0 10px 24px rgba(15, 26, 77, .34); transition: transform .25s var(--ease), box-shadow .25s var(--ease); }
+.cb-btn svg { width: 30px; height: 30px; display: block; }
+.cb-btn:hover { transform: scale(1.07); box-shadow: 0 0 0 4px rgba(201, 162, 39, .5), 0 12px 28px rgba(15, 26, 77, .4); }
+.cb-btn.pop { animation: cbPop .55s cubic-bezier(.34, 1.56, .64, 1) both; }
+.cb-fab.open .cb-row { display: none; }
+.cb-fab.open .cb-tease { display: none; }
+.cb-panel { height: min(600px, calc(100dvh - 120px)); transform-origin: bottom right; animation: cbPanel .28s var(--ease) both; }
+.cb-av svg { width: 24px; height: 24px; }
+@keyframes cbPop { 0% { transform: scale(.3) rotate(-30deg); opacity: 0; } 55% { transform: scale(1.14) rotate(5deg); opacity: 1; } 100% { transform: none; opacity: 1; } }
+@keyframes cbPanel { from { opacity: 0; transform: translateY(14px) scale(.9); } }
+@media (max-width: 767px) { .cb-btn { width: 54px; height: 54px; } .cb-btn svg { width: 27px; height: 27px; } .cb-panel { height: min(72dvh, 560px); } }
+@media (prefers-reduced-motion: reduce) { .cb-btn.pop, .cb-panel { animation: none; } }
+.two-col { align-items: start; }
+.mq-t { max-width: none; }

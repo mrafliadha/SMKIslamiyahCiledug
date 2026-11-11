@@ -122,6 +122,8 @@
     whatsapp: "0858-8977-6778 / 0813-1058-8366",
     // Section "Info dan Pengumuman (Poster)" di beranda: bawaan mati, dinyalakan lewat admin.
     posterTampil: false,
+    // Section "Mitra Industri" (marquee logo) di beranda: bawaan mati, dinyalakan lewat admin.
+    mitraTampil: false,
     visi: "Menjadi SMK unggulan yang menghasilkan lulusan kompeten, mandiri, dan berakhlak mulia.",
     misi: [
       "Menyelenggarakan pembelajaran kejuruan berbasis kompetensi industri",
@@ -139,7 +141,7 @@
     heroBg: "assets/img/gedung-halaman.webp",
     bannerBg: "",
     fotoProfil: "assets/img/gedung-gerbang.webp",
-    fotoVisi: "assets/img/gedung-halaman.webp"
+    fotoVisi: "assets/img/gedung-gerbang.webp"
   };
   // TESTIMONI alumni dan MITRA industri. Isi di bawah hanya CONTOH, ganti lewat admin.html menu Testimoni Alumni / Mitra Industri.
   const TESTIMONI = [

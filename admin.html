@@ -600,7 +600,7 @@
       ]
     };
     SECTIONS.mitra = {
-      title: 'Mitra Industri', noun: 'mitra', arr: () => D.MITRA, add: 'end',
+      title: 'Mitra Industri', noun: 'mitra', note: 'Section ini hanya tampil di beranda bila saklar "Tampilkan section Mitra Industri" di Pengaturan Umum dinyalakan. Unggah logo tiap perusahaan (PNG transparan paling bagus); tanpa logo, yang tampil hanya nama perusahaan.', arr: () => D.MITRA, add: 'end',
       blank: () => ({ id: nextId(D.MITRA), nama: '', foto: '' }),
       label: x => x.nama || '(tanpa nama)', sub: x => x.foto ? 'Logo terpasang' : 'Tampil sebagai teks',
       fields: () => [
@@ -698,6 +698,7 @@
       { key: 'whatsapp', label: 'Nomor WhatsApp', type: 'text', ph: '0858-8977-6778 / 0813-1058-8366', hint: 'Boleh lebih dari satu nomor, pisahkan dengan garis miring atau koma. Awalan 0 otomatis diubah ke 62. Nomor pertama dipakai tombol chat WhatsApp.' },
       { key: 'logo', label: 'Logo sekolah (navbar & beranda)', type: 'image', png: 1, out: 512, ratio: '1:1', ratios: ['1:1', 'free'], hint: 'Pakai rasio 1:1 (persegi) atau Bebas kalau logonya lebar. PNG transparan tetap transparan.' },
       { key: 'posterTampil', label: 'Tampilkan section "Info dan Pengumuman (Poster)" di beranda', type: 'switch', hint: 'Bawaan mati. Nyalakan bila ada poster yang ingin ditayangkan, lalu atur isinya di menu Poster Beranda.' },
+      { key: 'mitraTampil', label: 'Tampilkan section "Mitra Industri" (logo berjalan) di beranda', type: 'switch', hint: 'Bawaan mati. Nyalakan setelah daftar mitra dan logonya diisi di menu Mitra Industri.' },
       { key: 'heroBg', label: 'Background beranda', type: 'image', out: 1920, ratio: '16:9', hint: 'Foto lebar rasio 16:9 (1920 px). Lapisan biru transparan tetap dipasang supaya teks terbaca.' },
       { key: 'bannerBg', label: 'Foto latar banner halaman dalam', type: 'image', out: 1600, ratio: '16:9', hint: 'Tampil di judul halaman Profil sampai Kontak, dengan lapisan biru gelap. Kosong = foto gerbang sekolah bawaan.' },
     ];

@@ -31,7 +31,8 @@
 
     const IMG = (base, alt = '') => `<img class="ph" src="${base}.${IMG_EXT[0]}" data-base="${base}" data-i="0" alt="${alt}" loading="lazy" onerror="imgFallback(this)">`;
     const photoOf = (item, base, alt = '') => item && item.foto ? `<img class="ph" src="${item.foto}" alt="${alt}" loading="lazy" decoding="async">` : IMG(base, alt);
-    const thumbOf = (jenis, kode, nama, fotoHtml) => (window.logoThumb && logoThumb(jenis, kode, nama)) || fotoHtml;   // thumbnail = logo bila ada (js/icons.js), selain itu foto
+    // thumbnail: foto yang diunggah admin diprioritaskan; bila belum ada foto, dipakai logo (js/icons.js), lalu foto bawaan
+    const thumbOf = (jenis, kode, nama, fotoHtml, item) => (item && item.foto) ? fotoHtml : ((window.logoThumb && logoThumb(jenis, kode, nama)) || fotoHtml);
     const galeriOf = (item, fn, n, alt) => item && item.galeri && item.galeri.length
       ? `<div class="gallery">${item.galeri.map((src, k) => `<div><img class="ph" src="${src}" alt="${alt} ${k + 1}" loading="lazy" decoding="async"></div>`).join('')}</div>`
       : galeri(fn, n, alt);
@@ -153,7 +154,7 @@
           ${items.map(([id, j], k) => {
             const v = jurVisual(id, k);
             return `<article class="jsl-slide" role="group" aria-roledescription="slide" aria-label="${k + 1} dari ${n}">
-              <div class="jsl-visual ${v.bg}">${v.icon}${thumbOf('jurusan', j.singkatan, j.name, photoOf(j, P.jurusan(id), j.name))}<span class="jsl-code">${j.singkatan}</span></div>
+              <div class="jsl-visual ${v.bg}">${v.icon}${thumbOf('jurusan', j.singkatan, j.name, photoOf(j, P.jurusan(id), j.name), j)}<span class="jsl-code">${j.singkatan}</span></div>
               <div class="jsl-info">
                 <span class="chip kode">${j.singkatan}</span>
                 <h3>${j.name}</h3>
@@ -323,7 +324,6 @@
       if (PPDB.status === 'Ditutup') return '';
       const buka = PPDB.status === 'Dibuka', logo = CFG.logo || 'assets/logo.png';
       return `<section class="ppdb-feature"><div class="ppdb-box">
-        <img class="pf-wm" src="${logo}" alt="" aria-hidden="true" onerror="this.remove()">
         <div class="pf-badge"><div class="pf-ring"><img src="${logo}" alt="Logo ${CFG.namaLengkap}" onerror="this.remove()"></div></div>
         <div class="pf-body">
           <span class="status${buka ? '' : ' soon'}">PPDB ${PPDB.tahun} · ${buka ? 'Dibuka' : 'Segera dibuka'}</span>
@@ -539,6 +539,7 @@
 
     /* ---------- MITRA MARQUEE ---------- */
     function renderMitra() {
+      if (!CFG.mitraTampil) return '';   // bawaan mati; dinyalakan lewat admin (Pengaturan Umum)
       const list = (MITRA || []).filter(m => m && (m.foto || m.nama)); if (!list.length) return '';
       const rep = Math.max(1, Math.ceil(8 / list.length)), one = Array.from({ length: rep }, () => list).flat();
       const item = m => `<div class="mq-i" title="${qa(m.nama)}">${m.foto ? `<img src="${m.foto}" alt="${qa(m.nama)}" loading="lazy">` : `<span>${ESC(m.nama)}</span>`}</div>`;
@@ -662,7 +663,7 @@
     // Baris jurusan zig-zag: foto bergantian kiri/kanan, kode jurusan besar sebagai watermark
     function jurRow(id, j, k) {
       const v = jurVisual(id, k);
-      return `<article class="jur-row"><div class="jur-media"><div class="jsl-visual ${v.bg}">${v.icon}${thumbOf('jurusan', j.singkatan, j.name, photoOf(j, P.jurusan(id), j.name))}</div></div>
+      return `<article class="jur-row"><div class="jur-media"><div class="jsl-visual ${v.bg}">${v.icon}${thumbOf('jurusan', j.singkatan, j.name, photoOf(j, P.jurusan(id), j.name), j)}</div></div>
         <div class="jur-body"><span class="jur-code" aria-hidden="true">${j.singkatan}</span><span class="chip kode">${j.singkatan}</span><h2>${j.name}</h2><p>${j.tagline}</p>
         <ul class="plain">${(j.kompetensi || []).slice(0, 3).map(x => `<li>${x}</li>`).join('')}</ul>
         <button class="btn btn-navy" onclick="go('jurusan/${id}')">Lihat Detail Jurusan</button></div></article>`;
@@ -814,7 +815,6 @@
     <div class="wrap">
       <div class="info-grid">
         <div class="info-card"><b>Kode Jurusan</b><span>${j.singkatan}</span></div>
-        <div class="info-card"><b>Durasi</b><span>3 Tahun</span></div>
         <div class="info-card"><b>Sertifikasi</b><span>Uji Kompetensi</span></div>
         <div class="info-card"><b>Jenjang</b><span>SMK Kelas X–XII</span></div>
       </div>
@@ -881,7 +881,7 @@
   <section class="section alt">
     <div class="wrap">
       <div class="grid cols-3">
-        ${EKSKUL.map(e => card('bg3', '<svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.2"><path d="M24 8l4.5 9.2 10.1 1.5-7.3 7.1 1.7 10-9-4.7-9 4.7 1.7-10-7.3-7.1 10.1-1.5z"/></svg>', e.name, e.desc.slice(0, 64) + '…', `<span class="chip">${e.jadwal}</span>`, `go('ekskul/${e.id}')`, thumbOf('ekskul', '', e.name, photoOf(e, P.ekskul(e.id), e.name)))).join('')}
+        ${EKSKUL.map(e => card('bg3', '<svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.2"><path d="M24 8l4.5 9.2 10.1 1.5-7.3 7.1 1.7 10-9-4.7-9 4.7 1.7-10-7.3-7.1 10.1-1.5z"/></svg>', e.name, e.desc.slice(0, 64) + '…', `<span class="chip">${e.jadwal}</span>`, `go('ekskul/${e.id}')`, thumbOf('ekskul', '', e.name, photoOf(e, P.ekskul(e.id), e.name), e))).join('')}
       </div>
     </div>
   </section>`;
