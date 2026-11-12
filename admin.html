@@ -587,7 +587,7 @@
       ]
     };
     SECTIONS.testimoni = {
-      title: 'Testimoni Alumni', noun: 'testimoni', toggle: true, arr: () => D.TESTIMONI, add: 'end',
+      title: 'Testimoni Alumni', noun: 'testimoni', note: 'Section ini hanya tampil di beranda bila saklar "Tampilkan section Cerita Alumni" di Pengaturan Umum dinyalakan. Isi bawaan hanyalah contoh; ganti dengan testimoni alumni yang sebenarnya sebelum dinyalakan.', toggle: true, arr: () => D.TESTIMONI, add: 'end',
       blank: () => ({ id: nextId(D.TESTIMONI), aktif: true, nama: '', tahun: String(new Date().getFullYear() - 1), pekerjaan: '', pesan: '', foto: '' }),
       label: x => x.nama || '(tanpa nama)', sub: x => `Alumni ${x.tahun || ''}${x.pekerjaan ? ' · ' + x.pekerjaan : ''}`,
       fields: () => [
@@ -677,7 +677,7 @@
       { key: 'namaLengkap', label: 'Nama lengkap sekolah', type: 'text', req: 1, hint: 'Dipakai di judul tab, beranda, dan footer.' },
       { key: 'namaSekolah', label: 'Nama di navbar (baris 1)', type: 'text', w: 'half' },
       { key: 'subNama', label: 'Nama di navbar (baris 2)', type: 'text', w: 'half' },
-      { key: 'heroJudul', label: 'Judul besar beranda', type: 'text' },
+      { key: 'heroJudul', label: 'Judul besar beranda (nama sekolah)', type: 'text', hint: 'Tampil di bawah tulisan kecil "Selamat datang di".' },
       { key: 'heroDeskripsi', label: 'Deskripsi beranda', type: 'textarea', rows: 3 },
       { key: 'akreditasi', label: 'Akreditasi (nilai)', type: 'text', w: 'half', ph: 'A', hint: 'Contoh: A, B, atau Unggul.' },
       { key: 'akreditasiKet', label: 'Keterangan akreditasi', type: 'text', w: 'half', ph: 'Terakreditasi BAN-S/M, SK No. ..., berlaku s.d. ...' },
@@ -698,6 +698,7 @@
       { key: 'whatsapp', label: 'Nomor WhatsApp', type: 'text', ph: '0858-8977-6778 / 0813-1058-8366', hint: 'Boleh lebih dari satu nomor, pisahkan dengan garis miring atau koma. Awalan 0 otomatis diubah ke 62. Nomor pertama dipakai tombol chat WhatsApp.' },
       { key: 'logo', label: 'Logo sekolah (navbar & beranda)', type: 'image', png: 1, out: 512, ratio: '1:1', ratios: ['1:1', 'free'], hint: 'Pakai rasio 1:1 (persegi) atau Bebas kalau logonya lebar. PNG transparan tetap transparan.' },
       { key: 'posterTampil', label: 'Tampilkan section "Info dan Pengumuman (Poster)" di beranda', type: 'switch', hint: 'Bawaan mati. Nyalakan bila ada poster yang ingin ditayangkan, lalu atur isinya di menu Poster Beranda.' },
+      { key: 'testimoniTampil', label: 'Tampilkan section "Cerita Alumni" (testimoni) di beranda', type: 'switch', hint: 'Bawaan mati. Nyalakan setelah testimoni alumni yang asli diisi di menu Testimoni Alumni.' },
       { key: 'mitraTampil', label: 'Tampilkan section "Mitra Industri" (logo berjalan) di beranda', type: 'switch', hint: 'Bawaan mati. Nyalakan setelah daftar mitra dan logonya diisi di menu Mitra Industri.' },
       { key: 'heroBg', label: 'Background beranda', type: 'image', out: 1920, ratio: '16:9', hint: 'Foto lebar rasio 16:9 (1920 px). Lapisan biru transparan tetap dipasang supaya teks terbaca.' },
       { key: 'bannerBg', label: 'Foto latar banner halaman dalam', type: 'image', out: 1600, ratio: '16:9', hint: 'Tampil di judul halaman Profil sampai Kontak, dengan lapisan biru gelap. Kosong = foto gerbang sekolah bawaan.' },

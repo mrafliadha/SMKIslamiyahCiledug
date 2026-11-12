@@ -549,6 +549,7 @@
 
     /* ---------- TESTIMONI ---------- */
     function renderTestimoni() {
+      if (!CFG.testimoniTampil) return '';   // bawaan mati; dinyalakan lewat admin (Pengaturan Umum)
       const list = (TESTIMONI || []).filter(x => x && x.aktif !== false && x.nama); if (!list.length) return '';
       const ini = n => n.split(/\s+/).slice(0, 2).map(w => w[0]).join('').toUpperCase();
       return `<section class="section alt"><div class="wrap">
@@ -683,12 +684,11 @@
     <svg class="rays" viewBox="0 0 200 200"><g stroke="#FFC72C" stroke-width="2" opacity=".18">${Array.from({ length: 16 }).map((_, i) => `<line x1="100" y1="100" x2="${100 + 90 * Math.cos(i * Math.PI / 8)}" y2="${100 + 90 * Math.sin(i * Math.PI / 8)}"/>`).join('')}</g></svg>
     <div class="wrap">
       <div>
-        <span class="tag" style="color:#FFC72C">${CFG.namaLengkap}</span>
+        <span class="hero-eyebrow">Selamat datang di</span>
         <h1>${CFG.heroJudul}</h1>
         <p class="lead">${CFG.heroDeskripsi}</p>
         <div class="cta">
-          <button class="btn btn-gold" onclick="openDaftar()">Daftar PPDB ${PPDB.tahun}</button>
-          <button class="btn btn-outline" onclick="go('jurusan')">Lihat Jurusan</button>
+          <a class="hero-btn" href="profil.html">Lihat Profil Sekolah<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
     </div>
@@ -749,7 +749,7 @@
 
     function renderProfil() {
       return `
-  <section class="detail-hero"><div class="wrap"><span class="crumb" onclick="go('home')">← Beranda</span><h1>Profil Sekolah</h1><p class="sub">Mengenal lebih dekat SMK Islamiyah Ciledug</p></div></section>
+  <section class="detail-hero"><div class="wrap"><span class="crumb" onclick="go('home')">← Beranda</span><h1>Profil ${CFG.namaLengkap}</h1><p class="sub">Mengenal lebih dekat visi, misi, sejarah, dan nilai keunggulan lingkungan belajar kami.</p></div></section>
   <section class="section alt">
     <div class="wrap">
       <div class="split">
@@ -790,7 +790,7 @@
       <span class="tag">Fasilitas sekolah</span>
       <h2 style="margin-top:8px; margin-bottom:26px">Lingkungan Belajar yang Mendukung</h2>
       <div class="grid cols-3">
-        ${['Laboratorium Komputer & Jaringan', 'Studio Desain Multimedia', 'Bengkel Praktik Otomotif', 'Perpustakaan Digital', 'Masjid Sekolah', 'Lapangan Olahraga'].map(f => `<div class="box"><h3 style="font-size:15.5px">${f}</h3></div>`).join('')}
+        ${['Laboratorium Komputer & Jaringan', 'Lapangan Olahraga'].map(f => `<div class="box"><h3 style="font-size:15.5px">${f}</h3></div>`).join('')}
       </div>
       <div style="margin-top:34px; text-align:center"><button class="btn btn-navy" onclick="go('home')">Kembali ke Beranda</button></div>
     </div>
@@ -929,8 +929,8 @@
   <section class="detail-hero"><div class="wrap"><span class="crumb" onclick="go('kegiatan')">← Kegiatan</span><h1>${k.title}</h1><p class="sub">${k.tanggal}</p></div></section>
   <section class="section alt" style="padding-top:20px">
     <div class="wrap" style="max-width:760px">
-      <div class="news-thumb" style="height:260px; margin-bottom:24px">${photoOf(k, P.kegiatan(k.id), k.title)}</div>
-      <p style="font-size:15.5px">${k.content}</p>
+      <div class="news-thumb kg-cover">${photoOf(k, P.kegiatan(k.id), k.title)}</div>
+      <div class="kg-body">${String(k.content || '').split(/\n\s*\n/).map((p, i) => (i === 0 && p.length < 130 && !/[.!?]$/.test(p.trim())) ? `<h3 class="kg-sub">${p}</h3>` : `<p>${p}</p>`).join('')}</div>
       <h3 style="margin-top:30px; margin-bottom:14px; font-size:17px">Galeri Foto</h3>
       ${galeriOf(k, n => P.kegiatanGaleri(k.id, n), GALERI_JUMLAH.kegiatan, k.title)}
       <div style="margin-top:30px"><button class="btn btn-navy" onclick="go('kegiatan')">← Semua Kegiatan</button></div>

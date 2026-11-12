@@ -42,22 +42,125 @@
       { id: 6, title: "Juara Harapan 1 Fotografi Jurnalistik", kategori: "Non-Akademik", tingkat: "Kota", tahun: "2024", jur: "DKV", desc: "Karya foto jurnalistik siswa DKV mendapat penghargaan pada festival fotografi tingkat kota." }
     ];
     const EKSKUL = [
-      { id: 1, name: "Tari Tradisional Saman", desc: "Melestarikan seni tari tradisional Saman dengan latihan kekompakan gerak dan ketukan bersama tim.", jadwal: "Sabtu, 09.00–11.00" },
-      { id: 2, name: "Palang Merah Remaja (PMR)", desc: "Melatih kesiapsiagaan pertolongan pertama, kesehatan, dan kepedulian sosial di lingkungan sekolah.", jadwal: "Senin, 14.00–15.30" },
-      { id: 3, name: "Paskibra", desc: "Membentuk kedisiplinan dan kepemimpinan melalui latihan baris-berbaris dan pengibaran bendera.", jadwal: "Rabu, 15.00–17.00" },
-      { id: 4, name: "Pramuka", desc: "Membentuk kemandirian, kerja sama, dan jiwa kepemimpinan melalui kegiatan kepramukaan rutin.", jadwal: "Jumat, 14.00–16.00" },
-      { id: 5, name: "Marching Band", desc: "Mengasah kemampuan bermusik dan kekompakan formasi dalam grup marching band sekolah.", jadwal: "Selasa & Kamis, 15.00–17.00" },
-      { id: 6, name: "Pencak Silat", desc: "Melatih seni bela diri tradisional Indonesia, kedisiplinan fisik, dan mental siswa.", jadwal: "Kamis, 15.30–17.30" },
-      { id: 7, name: "Basket", desc: "Wadah bakat olahraga bola basket, melatih kekompakan tim melalui latihan dan pertandingan rutin.", jadwal: "Selasa, 15.30–17.30" },
-      { id: 8, name: "Futsal", desc: "Melatih kekompakan tim dan kebugaran melalui latihan dan pertandingan futsal antar sekolah.", jadwal: "Rabu & Sabtu, 15.30–17.30" }
+      {
+        "id": 9,
+        "name": "Hadroh",
+        "desc": "Seni musik Islami dengan alat rebana dan lantunan selawat. Melatih kekompakan, rasa percaya diri, dan kecintaan pada seni bernuansa Islami.",
+        "jadwal": "Jadwal menyusul"
+      },
+      {
+        "id": 4,
+        "name": "Pramuka",
+        "desc": "Membentuk kemandirian, kerja sama, dan jiwa kepemimpinan melalui kegiatan kepramukaan rutin.",
+        "jadwal": "Jumat, 14.00–16.00"
+      }
     ];
     const KEGIATAN = [
-      { id: 1, kategori: "Non-Akademik", jur: "Sekolah", title: "Upacara Peringatan Hari Kemerdekaan", tanggal: "17 Agustus 2026", excerpt: "Seluruh siswa dan guru mengikuti upacara bendera dalam rangka HUT Kemerdekaan Republik Indonesia.", content: "Upacara berlangsung khidmat di lapangan sekolah, diikuti oleh seluruh siswa, guru, dan staf. Petugas upacara terdiri dari siswa terpilih dari berbagai jurusan sebagai bentuk apresiasi atas prestasi dan kedisiplinan mereka sepanjang tahun ajaran." },
-      { id: 2, kategori: "Akademik", jur: "TKJ", title: "Kunjungan Industri Jurusan TKJ", tanggal: "3 September 2026", excerpt: "Siswa TKJ mengunjungi salah satu perusahaan penyedia layanan data center di Jakarta.", content: "Kegiatan ini bertujuan memberikan gambaran nyata dunia kerja di bidang teknologi jaringan. Siswa berkesempatan melihat langsung ruang server, sistem keamanan data center, serta berdiskusi dengan praktisi industri mengenai peluang karier di bidang IT." },
-      { id: 3, kategori: "Non-Akademik", jur: "DKV", title: "Pameran Karya Siswa DKV", tanggal: "20 September 2026", excerpt: "Karya-karya terbaik siswa jurusan DKV dipamerkan dalam acara tahunan sekolah.", content: "Pameran menampilkan poster, ilustrasi, fotografi, dan karya multimedia hasil proyek akhir siswa. Acara ini juga dihadiri oleh orang tua dan tamu undangan dari industri kreatif setempat sebagai bentuk apresiasi terhadap karya siswa." },
-      { id: 4, kategori: "Akademik", jur: "Umum", title: "Lomba Kompetensi Siswa (LKS) Tingkat Provinsi", tanggal: "5 Oktober 2026", excerpt: "Perwakilan sekolah dari tiga jurusan mengikuti ajang LKS tingkat provinsi.", content: "Sekolah mengirimkan perwakilan terbaik dari jurusan TKJ, DKV, dan TBSM untuk berkompetisi di tingkat provinsi. Persiapan dilakukan melalui pelatihan intensif bersama pembimbing dan alumni yang berpengalaman." },
-      { id: 5, title: "Bakti Sosial dan Servis Motor Gratis", tanggal: "12 Oktober 2026", excerpt: "Siswa TBSM memberikan layanan servis motor gratis bagi warga sekitar sekolah.", content: "Kegiatan ini menjadi ajang praktik nyata sekaligus pengabdian kepada masyarakat. Warga sekitar sekolah dapat memanfaatkan layanan servis ringan secara gratis yang dikerjakan langsung oleh siswa di bawah pengawasan guru pembimbing." },
-      { id: 6, title: "Seminar Kewirausahaan dan Dunia Kerja", tanggal: "28 Oktober 2026", excerpt: "Menghadirkan alumni dan praktisi industri untuk berbagi pengalaman kepada siswa kelas akhir.", content: "Seminar ini bertujuan membekali siswa kelas akhir dengan wawasan mengenai dunia kerja maupun peluang berwirausaha setelah lulus, lengkap dengan sesi tanya jawab dan berbagi pengalaman dari alumni yang telah sukses di bidangnya." }
+      {
+        "id": 1,
+        "kategori": "Non-Akademik",
+        "jur": "Sekolah",
+        "title": "Upacara Peringatan Hari Kemerdekaan",
+        "tanggal": "17 Agustus 2026",
+        "excerpt": "Seluruh siswa dan guru mengikuti upacara bendera dalam rangka HUT Kemerdekaan Republik Indonesia.",
+        "content": "Upacara berlangsung khidmat di lapangan sekolah, diikuti oleh seluruh siswa, guru, dan staf. Petugas upacara terdiri dari siswa terpilih dari berbagai jurusan sebagai bentuk apresiasi atas prestasi dan kedisiplinan mereka sepanjang tahun ajaran."
+      },
+      {
+        "id": "2",
+        "kategori": "Non-Akademik",
+        "jur": "Sekolah",
+        "title": "Pentas Seni",
+        "tanggal": "29 Juli 2026",
+        "excerpt": "Pentas Seni Sekolah merupakan kegiatan tahunan yang diselenggarakan sebagai wadah bagi para siswa untuk mengekspresikan kreativitas, bakat, dan minat mereka di bidang seni.",
+        "content": "Pentas Seni Sekolah merupakan kegiatan tahunan yang diselenggarakan sebagai wadah bagi para siswa untuk mengekspresikan kreativitas, bakat, dan minat mereka di bidang seni. Kegiatan ini menghadirkan berbagai penampilan menarik, mulai dari pertunjukan musik, tari tradisional dan modern, drama, puisi, hingga berbagai pertunjukan seni lainnya.\n\nMelalui kegiatan ini, siswa diberikan kesempatan untuk menunjukkan kemampuan, mengembangkan rasa percaya diri, serta meningkatkan kerja sama dan solidaritas antarsiswa.\n\nDengan mengusung semangat kreativitas dan kebersamaan, Pentas Seni Sekolah diharapkan dapat menjadi pengalaman yang berkesan sekaligus mempererat hubungan antara siswa, guru, dan seluruh warga sekolah.",
+        "foto": "assets/img/pentas-seni-1.webp",
+        "galeri": [
+          "assets/img/pentas-seni-1.webp",
+          "assets/img/pentas-seni-2.webp"
+        ]
+      },
+      {
+        "id": "3",
+        "kategori": "Akademik",
+        "jur": "Umum",
+        "title": "Kunjungan Industri Sari Roti",
+        "tanggal": "18 Mei 2026",
+        "excerpt": "Siswa mengunjungi pabrik Sari Roti (PT Nippon Indosari Corpindo Tbk) untuk belajar langsung tentang dunia industri dan proses produksi di lingkungan perusahaan.",
+        "content": "Kunjungan Industri PT Nippon Indosari Corpindo Tbk (Sari Roti)\n\nKunjungan Industri merupakan salah satu kegiatan edukatif yang bertujuan untuk memberikan pengalaman belajar secara langsung kepada siswa mengenai dunia industri dan proses produksi di lingkungan perusahaan.\n\nDalam kegiatan ini, siswa berkesempatan mengunjungi pabrik Sari Roti (PT Nippon Indosari Corpindo Tbk) untuk mengenal lebih dekat proses pembuatan roti, mulai dari pemilihan bahan baku, proses pengolahan adonan, pemanggangan, pengemasan, hingga pendistribusian produk kepada konsumen.\n\nSelain memperoleh wawasan mengenai proses produksi, siswa juga dapat mempelajari penerapan teknologi industri, standar kebersihan, pengendalian kualitas produk, serta sistem kerja yang diterapkan oleh perusahaan.\n\nMelalui kegiatan ini, diharapkan siswa dapat memperluas pengetahuan, meningkatkan pemahaman tentang dunia kerja, serta memperoleh gambaran nyata mengenai penerapan ilmu yang telah dipelajari di sekolah dalam lingkungan industri.",
+        "foto": "assets/img/sari-roti-1.webp",
+        "galeri": [
+          "assets/img/sari-roti-1.webp",
+          "assets/img/sari-roti-2.webp",
+          "assets/img/sari-roti-3.webp"
+        ]
+      },
+      {
+        "id": "4",
+        "kategori": "Akademik",
+        "jur": "TBSM",
+        "title": "Uji Praktik Kompetensi Teknik Sepeda Motor Bersama Honda",
+        "tanggal": "25 Maret 2026",
+        "excerpt": "Program pengembangan keterampilan siswa melalui kerja sama sekolah dengan AHASS Honda untuk mengukur dan meningkatkan kemampuan di bidang teknik dan perawatan sepeda motor.",
+        "content": "Sertifikasi Kompetensi Teknik Sepeda Motor Bersama AHASS Honda\n\nKegiatan Sertifikasi Kompetensi Teknik Sepeda Motor merupakan program pengembangan keterampilan siswa yang diselenggarakan melalui kerja sama antara pihak sekolah dengan AHASS Honda. Kegiatan ini bertujuan untuk mengukur sekaligus meningkatkan kemampuan siswa dalam bidang teknik dan perawatan sepeda motor sesuai dengan standar dunia industri.\n\nDalam kegiatan ini, siswa mengikuti serangkaian ujian praktik yang mencakup pemeriksaan komponen kendaraan, perawatan berkala, identifikasi kerusakan, penggunaan peralatan bengkel, serta penerapan prosedur keselamatan dan kesehatan kerja (K3).\n\nMelalui kegiatan sertifikasi ini, siswa mendapatkan pengalaman langsung dalam menghadapi standar kompetensi industri otomotif, khususnya pada bidang teknik sepeda motor Honda.\n\nDiharapkan kegiatan ini dapat meningkatkan keterampilan, pengetahuan, dan kesiapan siswa dalam memasuki dunia kerja, sekaligus menjadi bekal untuk menghadapi tantangan di industri otomotif yang semakin berkembang.",
+        "foto": "assets/img/honda-1.webp",
+        "galeri": [
+          "assets/img/honda-1.webp",
+          "assets/img/honda-2.webp"
+        ]
+      },
+      {
+        "id": "5",
+        "kategori": "Non-Akademik",
+        "jur": "Sekolah",
+        "title": "Latihan Dasar Kepemimpinan Osis (LDKO)",
+        "tanggal": "14 Februari 2026",
+        "excerpt": "Kegiatan pembinaan untuk membentuk karakter kepemimpinan, meningkatkan kedisiplinan, serta mengembangkan kemampuan berorganisasi bagi para anggota OSIS.",
+        "content": "Latihan Dasar Kepemimpinan Organisasi (LDKO) OSIS merupakan kegiatan pembinaan yang bertujuan untuk membentuk karakter kepemimpinan, meningkatkan kedisiplinan, serta mengembangkan kemampuan berorganisasi bagi para anggota OSIS.\n\nDalam kegiatan ini, peserta mendapatkan berbagai materi dan pelatihan mengenai dasar-dasar kepemimpinan, komunikasi, kerja sama tim, tanggung jawab, manajemen organisasi, serta kemampuan dalam mengambil keputusan.\n\nSelain penyampaian materi, kegiatan LDKO juga dilengkapi dengan berbagai aktivitas kelompok yang dirancang untuk melatih kekompakan, kreativitas, kemandirian, dan rasa tanggung jawab.\n\nMelalui kegiatan ini, diharapkan para anggota OSIS mampu menjadi pribadi yang disiplin, bertanggung jawab, memiliki jiwa kepemimpinan, serta mampu menjalankan tugas dan peran organisasi dengan baik demi kemajuan sekolah.",
+        "foto": "assets/img/ldko-1.webp",
+        "galeri": [
+          "assets/img/ldko-1.webp",
+          "assets/img/ldko-2.webp"
+        ]
+      },
+      {
+        "id": "6",
+        "kategori": "Non-Akademik",
+        "jur": "Umum",
+        "title": "Pembelajaran Interaktif melalui Media Film",
+        "tanggal": "22 Januari 2026",
+        "excerpt": "Kegiatan pembelajaran di luar sekolah: siswa menyaksikan film bertema pendidikan di bioskop Transmart untuk memperoleh pesan moral dan wawasan baru.",
+        "content": "Kegiatan Edukasi dan Apresiasi Film di Bioskop Transmart\n\nKegiatan Edukasi dan Apresiasi Film merupakan salah satu kegiatan pembelajaran di luar lingkungan sekolah yang bertujuan untuk memberikan pengalaman belajar yang menarik dan menyenangkan bagi para siswa.\n\nDalam kegiatan ini, siswa diajak untuk menyaksikan film bertema pendidikan di bioskop yang berlokasi di Transmart. Melalui tayangan film tersebut, siswa diharapkan dapat memperoleh pesan moral, menambah wawasan, serta memahami berbagai nilai positif yang dapat diterapkan dalam kehidupan sehari-hari.\n\nSelain sebagai sarana hiburan yang edukatif, kegiatan ini juga menjadi kesempatan bagi siswa untuk mempererat kebersamaan, meningkatkan interaksi sosial, dan mengembangkan kemampuan dalam memahami pesan serta nilai-nilai yang disampaikan melalui media visual.\n\nMelalui kegiatan ini, diharapkan proses pembelajaran menjadi lebih variatif, interaktif, dan memberikan pengalaman berkesan bagi seluruh peserta.",
+        "foto": "assets/img/film-transmart.webp"
+      },
+      {
+        "id": "7",
+        "kategori": "Akademik",
+        "jur": "Umum",
+        "title": "Kegiatan Seminar",
+        "tanggal": "12 November 2025",
+        "excerpt": "Siswa mengikuti seminar yang menghadirkan narasumber untuk berbagi wawasan dan pengalaman.",
+        "content": "Kegiatan seminar menjadi salah satu sarana pembelajaran di luar kegiatan belajar mengajar di kelas. Siswa menyimak pemaparan narasumber, mencatat materi, dan berdiskusi untuk menambah wawasan.\n\nMelalui kegiatan ini, diharapkan siswa memperoleh pengetahuan baru, motivasi, dan gambaran yang lebih luas untuk menunjang prestasi serta kesiapan mereka di masa depan.",
+        "foto": "assets/img/seminar.webp"
+      },
+      {
+        "id": "8",
+        "kategori": "Akademik",
+        "jur": "Umum",
+        "title": "Kunjungan Industri Mini Gathering Polman Dan Alumni",
+        "tanggal": "8 Oktober 2025",
+        "excerpt": "Kunjungan industri yang dirangkai dengan Mini Gathering Polman dan Alumni Vol. 1.",
+        "content": "Kegiatan kunjungan industri ini dirangkai dengan Mini Gathering Polman dan Alumni Vol. 1. Siswa berkesempatan melihat langsung lingkungan kerja industri serta berinteraksi dengan para alumni dan pihak terkait.\n\nMelalui kegiatan ini, diharapkan siswa memperoleh gambaran nyata tentang dunia kerja dan jenjang pendidikan lanjutan, sekaligus mempererat hubungan antara sekolah dan alumni.",
+        "foto": "assets/img/polman-gathering.webp"
+      },
+      {
+        "id": "9",
+        "kategori": "Non-Akademik",
+        "jur": "Sekolah",
+        "title": "Wisuda",
+        "tanggal": "14 Juni 2025",
+        "excerpt": "Momen penting yang menandai berakhirnya masa pendidikan siswa, dihadiri siswa, orang tua/wali, dan para guru.",
+        "content": "Wisuda merupakan momen penting yang menandai berakhirnya masa pendidikan siswa di SMK Islamiyah Ciledug. Kegiatan ini dihadiri siswa, orang tua/wali, dan para guru sebagai bentuk apresiasi atas perjuangan dan pencapaian selama menempuh pendidikan.\n\nDiharapkan seluruh lulusan dapat melanjutkan langkah mereka, baik ke dunia kerja, pendidikan tinggi, maupun berwirausaha, dengan bekal ilmu dan akhlak yang baik."
+      }
     ];
 
 
@@ -86,10 +189,10 @@
     berkas: [
       { id: 1, nama: "Formulir pendaftaran", ket: "Diisi lengkap oleh calon siswa dan orang tua/wali", link: "" },
       { id: 2, nama: "Fotokopi ijazah atau SKL SMP/MTs", ket: "Dilegalisir, 1 lembar", link: "" },
-      { id: 3, nama: "Fotokopi rapor semester 1–5", ket: "Dilegalisir", link: "" },
+      { id: 3, nama: "Fotokopi rapor kelas 7-9", ket: "Dilegalisir", link: "" },
       { id: 4, nama: "Fotokopi Kartu Keluarga", ket: "1 lembar", link: "" },
       { id: 5, nama: "Fotokopi akta kelahiran", ket: "1 lembar", link: "" },
-      { id: 6, nama: "Pas foto 3x4", ket: "4 lembar, latar merah", link: "" },
+      { id: 6, nama: "Pas foto ukuran 3x4", ket: "4 lembar, latar merah", link: "" },
       { id: 7, nama: "Surat pernyataan orang tua/wali", ket: "Bermaterai, format sesuai ketentuan sekolah", link: "" }
     ]
   };
@@ -106,8 +209,8 @@
     namaLengkap: "SMK Islamiyah Ciledug",
     namaSekolah: "SMK ISLAMIYAH",
     subNama: "CILEDUG",
-    heroJudul: "Menyiapkan Lulusan Terampil, Berdaya Saing, dan Berakhlak Mulia",
-    heroDeskripsi: "Sekolah menengah kejuruan dengan tiga program keahlian unggulan, membekali siswa dengan kompetensi siap kerja dan nilai-nilai keislaman dalam setiap proses belajarnya.",
+    heroJudul: "SMK Islamiyah Ciledug",
+    heroDeskripsi: "Membangun generasi cerdas, berkarakter mulia, dan berprestasi unggul.",
     alumni: "250+",
     akreditasi: "A",
     akreditasiKet: "Terakreditasi BAN-S/M",
@@ -124,6 +227,8 @@
     posterTampil: false,
     // Section "Mitra Industri" (marquee logo) di beranda: bawaan mati, dinyalakan lewat admin.
     mitraTampil: false,
+    // Section "Cerita Alumni" (testimoni) di beranda: bawaan mati, dinyalakan lewat admin.
+    testimoniTampil: false,
     visi: "Menjadi SMK unggulan yang menghasilkan lulusan kompeten, mandiri, dan berakhlak mulia.",
     misi: [
       "Menyelenggarakan pembelajaran kejuruan berbasis kompetensi industri",

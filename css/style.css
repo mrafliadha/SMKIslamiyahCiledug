@@ -1715,3 +1715,49 @@ nav.menu a.nav-cta::before { content: ''; position: absolute; left: -10px; top: 
 @media (prefers-reduced-motion: reduce) { .cb-btn.pop, .cb-panel { animation: none; } }
 .two-col { align-items: start; }
 .mq-t { max-width: none; }
+
+
+/* =====================================================================
+   HERO & BANNER mengikuti referensi: teks besar di atas foto gelap,
+   tombol pil dengan panah; banner halaman dalam dengan judul di tengah.
+   Warna disesuaikan ke palet sekolah (navy gelap, biru royal, emas).
+   ===================================================================== */
+.hero { min-height: min(88vh, 820px); display: flex; align-items: center; padding: clamp(96px, 12vw, 150px) 0 clamp(130px, 14vw, 190px);
+  background:
+    linear-gradient(90deg, rgba(8, 13, 40, .90) 0%, rgba(10, 18, 56, .72) 42%, rgba(12, 22, 66, .40) 100%),
+    linear-gradient(180deg, rgba(8, 13, 40, .40) 0%, rgba(8, 13, 40, 0) 28%, rgba(8, 13, 40, 0) 58%, rgba(8, 13, 40, .66) 100%),
+    var(--hero-custom, url('../assets/hero.jpg')) center 40% / cover no-repeat, var(--navy); }
+.hero .wrap { width: 100%; }
+.hero .wrap > div { max-width: 760px; }
+.hero-eyebrow { display: block; margin-bottom: 18px; font-size: .84rem; font-weight: 700; letter-spacing: .34em; text-transform: uppercase; color: var(--gold); }
+.hero h1 { margin-bottom: 20px; font-size: clamp(2.7rem, 6.6vw, 5rem); font-weight: 800; line-height: 1.04; letter-spacing: -.035em; text-wrap: balance; }
+.hero p.lead { max-width: 30em; margin-bottom: 34px; font-size: clamp(1.05rem, 1.7vw, 1.3rem); line-height: 1.65; color: #E4E9F8; }
+.hero-btn { display: inline-flex; align-items: center; gap: 12px; padding: 15px 28px; font-size: 1rem; font-weight: 700; color: #fff; background: #2A4BC0; border: 1px solid rgba(255, 255, 255, .2); border-radius: 999px; box-shadow: 0 10px 28px rgba(10, 18, 56, .45); transition: background-color .25s var(--ease), transform .25s var(--ease), box-shadow .25s var(--ease); }
+.hero-btn svg { transition: transform .25s var(--ease); }
+.hero-btn:hover { background: #3558D8; box-shadow: 0 14px 34px rgba(10, 18, 56, .55); }
+.hero-btn:hover svg { transform: translateX(5px); }
+.hero-btn:focus-visible { outline: 3px solid rgba(201, 162, 39, .6); outline-offset: 3px; }
+
+.detail-hero { text-align: center; justify-content: center; min-height: clamp(200px, 19vw, 290px); padding-block: clamp(40px, 5vw, 72px);
+  background:
+    linear-gradient(180deg, rgba(8, 13, 40, .80) 0%, rgba(14, 24, 70, .62) 50%, rgba(8, 13, 40, .84) 100%),
+    linear-gradient(90deg, rgba(8, 13, 40, .55) 0%, rgba(8, 13, 40, 0) 24%, rgba(8, 13, 40, 0) 76%, rgba(8, 13, 40, .55) 100%),
+    var(--banner-custom, url('../assets/img/gedung-gerbang.webp')) center 16% / cover no-repeat, var(--navy); }
+.detail-hero::before { display: none; }
+.detail-hero h1 { font-size: clamp(1.7rem, 3.5vw, 2.7rem); letter-spacing: -.02em; }
+.detail-hero .sub { margin-inline: auto; max-width: 62ch; }
+.detail-hero .crumb { display: inline-block; margin-bottom: 10px; }
+@media (max-width: 860px) {
+  .hero { min-height: 0; background:
+      linear-gradient(180deg, rgba(8, 13, 40, .82) 0%, rgba(10, 18, 56, .66) 52%, rgba(8, 13, 40, .88) 100%),
+      var(--hero-custom, url('../assets/hero.jpg')) center / cover no-repeat, var(--navy); }
+  .hero-eyebrow { letter-spacing: .26em; }
+  .detail-hero { background:
+      linear-gradient(180deg, rgba(8, 13, 40, .84) 0%, rgba(14, 24, 70, .68) 55%, rgba(8, 13, 40, .86) 100%),
+      var(--banner-custom, url('../assets/img/gedung-gerbang.webp')) center 20% / cover no-repeat, var(--navy); }
+}
+
+/* Detail kegiatan: foto mengikuti lebar layar, isi berparagraf */
+.kg-cover { height: auto; aspect-ratio: 16 / 9; max-height: 440px; margin-bottom: 26px; }
+.kg-body p { max-width: none; margin-bottom: 16px; font-size: 1rem; line-height: 1.75; color: var(--ink); }
+.kg-sub { margin: 0 0 14px; font-size: 1.15rem; line-height: 1.4; color: var(--head); }
