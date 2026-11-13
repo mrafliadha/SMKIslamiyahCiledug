@@ -1761,3 +1761,24 @@ nav.menu a.nav-cta::before { content: ''; position: absolute; left: -10px; top: 
 .kg-cover { height: auto; aspect-ratio: 16 / 9; max-height: 440px; margin-bottom: 26px; }
 .kg-body p { max-width: none; margin-bottom: 16px; font-size: 1rem; line-height: 1.75; color: var(--ink); }
 .kg-sub { margin: 0 0 14px; font-size: 1.15rem; line-height: 1.4; color: var(--head); }
+
+
+/* =====================================================================
+   PERUBAHAN: garis kuning dihapus (kecuali di navbar) + menu HP rata atas
+   ===================================================================== */
+/* garis kuning di bawah hero / header halaman, di atas footer, dan garis aksen lain: dihilangkan.
+   Yang dipertahankan: garis kuning di navbar (garis atas navbar dan garis aktif menu). */
+.hero, .detail-hero { border-bottom: 0; }
+.site-footer { border-top: 0; }
+.ppdb-box { border-top: 0; }
+.dl-help { border-left: 0; }
+.section-head h2::before, .about-head h2::before, .dl-gh::before { display: none; }
+.section-head h2, .about-head h2, .section-head .tag, .about-head .tag { padding-left: 0; }
+.pf-link { border-bottom: 0; }
+.cb-hd { border-bottom: 0; }
+.card .body h3 { background: none; }
+
+/* menu di dalam garis tiga (HP/tablet): item mulai dari atas, bukan menempel di bawah */
+@media (max-width: 1040px) {
+  nav.menu { justify-content: flex-start; }
+}

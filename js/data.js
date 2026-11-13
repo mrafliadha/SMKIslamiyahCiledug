@@ -222,7 +222,7 @@
     email: "smk.islamiyah13@gmail.com",
     jam: "12.30 - 17.30",
     // Boleh lebih dari satu nomor, dipisah "/" atau koma. Awalan 0 otomatis menjadi 62.
-    whatsapp: "0858-8977-6778 / 0813-1058-8366",
+    whatsapp: "0858-8977-6778 (Danang) / 0895-3473-39236 (Monica)",
     // Section "Info dan Pengumuman (Poster)" di beranda: bawaan mati, dinyalakan lewat admin.
     posterTampil: false,
     // Section "Mitra Industri" (marquee logo) di beranda: bawaan mati, dinyalakan lewat admin.

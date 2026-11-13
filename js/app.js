@@ -373,7 +373,7 @@
       const cats = [...new Set(list.map(x => x.kategori || 'Lainnya'))];
       const groups = cats.map(c => { const it = list.filter(x => (x.kategori || 'Lainnya') === c); return `<section class="dl-group" data-group><h2 class="dl-gh">${c}<small>${it.length} berkas</small></h2><div class="dl-grid">${it.map(dlCard).join('')}</div></section>`; }).join('');
       return `
-  <section class="detail-hero"><div class="wrap"><span class="crumb" onclick="go('home')">← Beranda</span><h1>Dokumen</h1><p class="sub">Dokumen dan formulir resmi sekolah yang bisa diunduh siswa maupun orang tua</p></div></section>
+  <section class="detail-hero"><div class="wrap"><h1>Dokumen</h1><p class="sub">Dokumen dan formulir resmi sekolah yang bisa diunduh siswa maupun orang tua</p></div></section>
   <section class="section alt">
     <div class="wrap" data-filterable>
       ${list.length ? `<div class="dl-bar">
@@ -395,7 +395,7 @@
       const berkas = PPDB.berkas || [], formLink = safeUrl(PPDB.formUrl);
       const dis = open ? '' : ' disabled';
       return `
-  <section class="detail-hero"><div class="wrap"><span class="crumb" onclick="go('home')">← Beranda</span>
+  <section class="detail-hero"><div class="wrap">
     <h1>PPDB ${PPDB.tahun}</h1>
     <p class="sub">Penerimaan Peserta Didik Baru ${CFG.namaLengkap}<span class="pp-badge ${cls}">${PPDB.status}</span></p>
     ${countdownHTML()}
@@ -741,7 +741,7 @@
 
   <section class="section alt">
     <div class="wrap">
-      <div class="section-head"><div><span class="tag">Kegiatan sekolah</span><h2 style="margin-top:8px">Dokumentasi Terbaru</h2></div><button class="btn btn-navy" onclick="go('kegiatan')">Semua Kegiatan</button></div>
+      <div class="section-head"><div><span class="tag">Kegiatan sekolah</span><h2 style="margin-top:8px">Berita Terbaru</h2></div><button class="btn btn-navy" onclick="go('kegiatan')">Semua Kegiatan</button></div>
       <div class="agenda">${KEGIATAN.slice(0, 4).map(k => agendaRow(k)).join('')}</div>
     </div>
   </section>`;
@@ -749,7 +749,7 @@
 
     function renderProfil() {
       return `
-  <section class="detail-hero"><div class="wrap"><span class="crumb" onclick="go('home')">← Beranda</span><h1>Profil ${CFG.namaLengkap}</h1><p class="sub">Mengenal lebih dekat visi, misi, sejarah, dan nilai keunggulan lingkungan belajar kami.</p></div></section>
+  <section class="detail-hero"><div class="wrap"><h1>Profil ${CFG.namaLengkap}</h1><p class="sub">Mengenal lebih dekat visi, misi, sejarah, dan nilai keunggulan lingkungan belajar kami.</p></div></section>
   <section class="section alt">
     <div class="wrap">
       <div class="split">
@@ -799,7 +799,7 @@
 
     function renderJurusanList() {
       return `
-  <section class="detail-hero"><div class="wrap"><span class="crumb" onclick="go('home')">← Beranda</span><h1>Program Keahlian</h1><p class="sub">Pilih jurusan untuk melihat detail lengkap kompetensi dan prospek karier</p></div></section>
+  <section class="detail-hero"><div class="wrap"><h1>Program Keahlian</h1><p class="sub">Pilih jurusan untuk melihat detail lengkap kompetensi dan prospek karier</p></div></section>
   <section class="section alt">
     <div class="wrap">
       <div class="jur-list">${Object.entries(JURUSAN).map(([id, j], k) => jurRow(id, j, k)).join('')}</div>
@@ -839,7 +839,7 @@
 
     function renderPrestasiList() {
       return `
-  <section class="detail-hero"><div class="wrap"><span class="crumb" onclick="go('home')">← Beranda</span><h1>Prestasi Sekolah</h1><p class="sub">Capaian siswa dan sekolah di berbagai ajang kompetisi</p></div></section>
+  <section class="detail-hero"><div class="wrap"><h1>Prestasi Sekolah</h1><p class="sub">Capaian siswa dan sekolah di berbagai ajang kompetisi</p></div></section>
   <section class="section alt">
     <div class="wrap" data-filterable>
       ${filterRow('kat', 'Kategori', PRESTASI.map(p => p.kategori))}${filterRow('jur', 'Jurusan', PRESTASI.map(p => p.jur))}
@@ -877,7 +877,7 @@
 
     function renderEkskulList() {
       return `
-  <section class="detail-hero"><div class="wrap"><span class="crumb" onclick="go('home')">← Beranda</span><h1>Ekstrakurikuler</h1><p class="sub">Wadah pengembangan minat dan bakat siswa di luar jam akademik</p></div></section>
+  <section class="detail-hero"><div class="wrap"><h1>Ekstrakurikuler</h1><p class="sub">Wadah pengembangan minat dan bakat siswa di luar jam akademik</p></div></section>
   <section class="section alt">
     <div class="wrap">
       <div class="grid cols-3">
@@ -912,7 +912,7 @@
     }
     function renderKegiatanList() {
       return `
-  <section class="detail-hero"><div class="wrap"><span class="crumb" onclick="go('home')">← Beranda</span><h1>Kegiatan Sekolah</h1><p class="sub">Berita dan dokumentasi kegiatan siswa, guru, dan sekolah</p></div></section>
+  <section class="detail-hero"><div class="wrap"><h1>Kegiatan Sekolah</h1><p class="sub">Berita dan dokumentasi kegiatan siswa, guru, dan sekolah</p></div></section>
   <section class="section alt">
     <div class="wrap" style="max-width:920px" data-filterable>
       ${filterRow('kat', 'Kategori', KEGIATAN.map(k => k.kategori || 'Umum'))}${filterRow('jur', 'Jurusan', KEGIATAN.map(jurOfKegiatan))}
@@ -948,7 +948,7 @@
     tel: ic.phone, mail: ic.mail, pin: ic.pin, clock: ic.clock
   };
   return `
-<section class="detail-hero"><div class="wrap"><span class="crumb" onclick="go('home')">← Beranda</span><h1>Hubungi Kami</h1><p class="sub">Kami siap membantu pertanyaan seputar pendaftaran dan informasi sekolah</p></div></section>
+<section class="detail-hero"><div class="wrap"><h1>Hubungi Kami</h1><p class="sub">Kami siap membantu pertanyaan seputar pendaftaran dan informasi sekolah</p></div></section>
 <section class="section alt">
   <div class="wrap">
     <div class="kt-top">
